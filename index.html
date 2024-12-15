@@ -1,99 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>M. Usman Kiani</title>
-  <style>
-    /* General Reset */
-    body, html {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom right, #1e5799, #2989d8, #7db9e8);
-      color: #333;
-      text-align: center;
-      height: 100%;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>M. Usman Kiani</title>
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* General Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-    /* Centered Card */
-    .card {
-      background-color: white;
-      margin: 0 auto;
-      margin-top: 10vh;
-      padding: 2rem;
-      width: 90%;
-      max-width: 400px;
-      border-radius: 8px;
-      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    }
+      /* Fullscreen Background */
+      .background {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #1d3856;
+        font-family: "Poppins", sans-serif;
+      }
 
-    /* Profile Image */
-    .profile-img {
-      width: 80px;
-      height: 80px;
-      object-fit: cover;
-      border-radius: 50%;
-      margin-top: -60px;
-      border: 4px solid white;
-    }
+      /* Card */
+      .card {
+        background-color: white;
+        padding: 2rem;
+        width: 90%;
+        max-width: 500px;
+        border-radius: 8px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        position: relative;
+      }
 
-    /* Header and Text */
-    h1 {
-      margin: 1rem 0 0.5rem;
-      font-size: 1.5rem;
-      font-weight: bold;
-    }
+      /* Profile Image */
+      .profile-img {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 50%;
+        position: absolute;
+        top: -40px;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 4px solid white;
+      }
 
-    h2 {
-      margin: 0;
-      font-size: 1rem;
-      color: #666;
-    }
+      /* Header and Text */
+      .name {
+        margin-top: 1rem;
+        font-size: 1.5rem;
+        color: #444;
+      }
 
-    p {
-      font-size: 0.9rem;
-      line-height: 1.5;
-      margin: 1rem 0 2rem;
-    }
+      .headline {
+        font-size: 1rem;
+        margin-top: 0.5rem;
+        color: #666;
+      }
 
-    /* Social Links */
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      font-size: 1.8rem;
-    }
+      .bio {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin: 1.5rem 0;
+        color: #333;
+        /* text-align: justify; */
+      }
 
-    .social-links a {
-      color: #333;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
+      /* Social Links */
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        font-size: 1.8rem;
+      }
 
-    .social-links a:hover {
-      color: #0077b5;
-    }
-  </style>
-</head>
-<body>
-  <div class="card">
-    <!-- Profile Image -->
-    <img src="https://via.placeholder.com/80" alt="Profile Picture" class="profile-img" />
-    
-    <!-- Name and Title -->
-    <h1>M. USMAN KIANI</h1>
-    <h2>React, Web3, and React Native in Pakistan</h2>
-    
-    <!-- Bio -->
-    <p>If you'd like to get in touch, feel free to say hello through any of the social links below.</p>
+      .social-links a {
+        color: #333;
+      }
 
-    <!-- Social Links -->
-    <div class="social-links">
-      <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub">🐱</a>
-      <a href="https://linkedin.com/in/yourusername" target="_blank" aria-label="LinkedIn">🔗</a>
+      /* Icons */
+      .icon {
+        width: 40px;
+        height: 40px;
+      }
+
+      .icon_small {
+        width: 36px;
+        height: 36px;
+        margin-top: 2px;
+        cursor: pointer;
+      }
+
+      #snackbar {
+        visibility: hidden;
+        min-width: 250px;
+        margin-left: -125px;
+        background-color: transparent;
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1;
+        left: 50%;
+        bottom: 30px;
+      }
+
+      #snackbar.show {
+        visibility: visible;
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+      }
+
+      @-webkit-keyframes fadein {
+        from {
+          bottom: 0;
+          opacity: 0;
+        }
+        to {
+          bottom: 30px;
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadein {
+        from {
+          bottom: 0;
+          opacity: 0;
+        }
+        to {
+          bottom: 30px;
+          opacity: 1;
+        }
+      }
+
+      @-webkit-keyframes fadeout {
+        from {
+          bottom: 30px;
+          opacity: 1;
+        }
+        to {
+          bottom: 0;
+          opacity: 0;
+        }
+      }
+
+      @keyframes fadeout {
+        from {
+          bottom: 30px;
+          opacity: 1;
+        }
+        to {
+          bottom: 0;
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      function copyText() {
+        /* Copy text into clipboard */
+        navigator.clipboard.writeText("usmankiani256@gmail.com")
+        var x = document.getElementById("snackbar")
+
+        x.className = "show"
+
+        // After 3 seconds, remove the show class from DIV
+        setTimeout(function () {
+          x.className = x.className.replace("show", "")
+        }, 3000)
+      }
+    </script>
+
+    <!-- Background Container -->
+    <div class="background">
+      <div class="card">
+        <!-- Profile Image -->
+        <img
+          src="https://media.licdn.com/dms/image/v2/D4D03AQFUI8tQ8rXUIA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1718948662225?e=1740009600&v=beta&t=-ZiUXsG9hrqh_CiURIGNRr2cyhKEsPZB8xIhcQmwskI"
+          alt="Profile Picture"
+          class="profile-img"
+        />
+
+        <!-- Name and Title -->
+        <p class="name">M. Usman Kiani</p>
+        <p class="headline">React Native︱ React ︱ Web3</p>
+
+        <!-- Bio -->
+        <p class="bio">
+          I'm a software developer with 5+ years in React Native and Web3. I
+          build scalable apps and enjoy working with diverse teams to create
+          solutions that meet user and business needs.
+          <br />
+          Let's connect!
+        </p>
+
+        <div class="social-links">
+          <a onclick="copyText()">
+            <img src="./icons/mail.png" alt="Email" class="icon_small" />
+          </a>
+          <a
+            href="https://github.com/usmankiani256"
+            target="_blank"
+            aria-label="GitHub"
+          >
+            <img src="./icons/github.png" alt="GitHub" class="icon" />
+          </a>
+          <a
+            href="https://linkedin.com/in/usmankiani"
+            target="_blank"
+            aria-label="LinkedIn"
+          >
+            <img src="./icons/linkedin.png" alt="LinkedIn" class="icon" />
+          </a>
+        </div>
+      </div>
+      <div id="snackbar">Copied email to clipboard</div>
     </div>
-  </div>
-</body>
+  </body>
 </html>
