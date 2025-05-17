@@ -6,7 +6,7 @@
     <title>M. Usman Kiani</title>
     <!-- Google Font -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
     <style>
@@ -17,26 +17,30 @@
         box-sizing: border-box;
       }
 
-      /* Fullscreen Background */
-      .background {
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: #1d3856;
+      body {
         font-family: "Poppins", sans-serif;
+        background: #2b2b2b;
+        color: #e8e8e8;
+        line-height: 1.6;
       }
 
-      /* Card */
-      .card {
-        background-color: white;
+      /* Main Container */
+      .container {
+        max-width: 1000px;
+        margin: 0 auto;
         padding: 2rem;
-        width: 90%;
-        max-width: 500px;
+      }
+
+      /* Header Card */
+      .header-card {
+        background-color: #333333;
+        padding: 2rem;
         border-radius: 8px;
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        box-shadow: 0px 4px 6px #0002;
         text-align: center;
         position: relative;
+        margin-top: 60px;
+        margin-bottom: 2rem;
       }
 
       /* Profile Image */
@@ -49,63 +53,51 @@
         top: -40px;
         left: 50%;
         transform: translateX(-50%);
-        border: 4px solid white;
+        border: 4px solid #454545;
       }
 
       /* Header and Text */
       .name {
         margin-top: 1rem;
         font-size: 1.5rem;
-        color: #444;
+        color: #e8e8e8;
       }
 
       .headline {
         font-size: 1rem;
         margin-top: 0.5rem;
-        color: #666;
+        color: #e8e8e8;
       }
 
       .bio {
         font-size: 0.9rem;
         line-height: 1.5;
         margin: 1.5rem 0;
-        color: #333;
-        /* text-align: justify; */
+        color: #e8e8e8;
       }
 
       /* Social Links */
       .social-links {
         display: flex;
+        gap: 0.5rem;
+        align-items: center;
         justify-content: center;
-        gap: 1.5rem;
-        font-size: 1.8rem;
-      }
-
-      .social-links a {
-        color: #333;
       }
 
       /* Icons */
       .icon {
-        width: 40px;
-        height: 40px;
-      }
-
-      .icon_small {
-        width: 36px;
-        height: 36px;
-        margin-top: 2px;
         cursor: pointer;
       }
 
+      /* Snackbar */
       #snackbar {
         visibility: hidden;
         min-width: 250px;
         margin-left: -125px;
-        background-color: transparent;
-        color: #fff;
+        background-color: #333333;
+        color: #e8e8e8;
         text-align: center;
-        border-radius: 2px;
+        border-radius: 4px;
         padding: 16px;
         position: fixed;
         z-index: 1;
@@ -119,6 +111,151 @@
         animation: fadein 0.5s, fadeout 0.5s 2.5s;
       }
 
+      /* Content Sections */
+      .section {
+        background-color: #333333;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0px 4px 6px #0002;
+        margin-bottom: 2rem;
+      }
+
+      .section-title {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+        color: #e8e8e8;
+        font-weight: 600;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 0.5rem;
+      }
+
+      /* Skills */
+      .skills-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .skill-category {
+        flex: 1;
+        min-width: 200px;
+      }
+
+      .skill-category h3 {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+        color: #e8e8e8;
+      }
+
+      .skill-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .skill-tag {
+        background-color: #454545;
+        color: #e8e8e8;
+        padding: 0.2rem 0.7rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+      }
+
+      /* Projects */
+      .project {
+        margin-bottom: 1.5rem;
+      }
+
+      .project-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #e8e8e8;
+      }
+
+      .project-description {
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+        color: #d9d9d9;
+      }
+
+      /* Experience */
+      .experience-item {
+        margin-bottom: 1.5rem;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        border-radius: 6px;
+        padding: 0.5rem;
+      }
+
+      .experience-item:hover {
+        /* transform: translateY(-2px); */
+        /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+        background-color: #383838;
+      }
+
+      .experience-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #e8e8e8;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .experience-title::after {
+        content: "+";
+        font-size: 1.2rem;
+        transition: transform 0.3s ease;
+      }
+
+      .experience-title.active::after {
+        content: "-";
+      }
+
+      .experience-details {
+        font-size: 0.9rem;
+        color: #e8e8e8;
+        margin: 0.2rem 0;
+      }
+
+      .experience-description {
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+        color: #d9d9d9;
+      }
+
+      .experience-bullets {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+      }
+
+      .experience-bullets.active {
+        max-height: 1000px;
+        transition: max-height 0.3s ease-in;
+      }
+
+      .experience-bullet {
+        margin-left: 1.5rem;
+        margin-top: 0.3rem;
+        font-size: 0.9rem;
+        position: relative;
+        color: #d9d9d9;
+      }
+
+      .experience-bullet:before {
+        content: "•";
+        position: absolute;
+        left: -1rem;
+      }
+
+      /* Interests */
+      .interests-content {
+        font-size: 0.9rem;
+      }
+
+      /* Animation keyframes */
       @-webkit-keyframes fadein {
         from {
           bottom: 0;
@@ -162,68 +299,331 @@
           opacity: 0;
         }
       }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .container {
+          padding: 1rem;
+        }
+
+        .section {
+          padding: 1.5rem;
+        }
+
+        .skill-category {
+          min-width: 100%;
+        }
+      }
     </style>
   </head>
   <body>
     <script>
       function copyText() {
         /* Copy text into clipboard */
-        navigator.clipboard.writeText("usmankiani256@gmail.com")
-        var x = document.getElementById("snackbar")
+        navigator.clipboard.writeText("usmankiani256@gmail.com");
+        var x = document.getElementById("snackbar");
 
-        x.className = "show"
+        x.className = "show";
 
         // After 3 seconds, remove the show class from DIV
         setTimeout(function () {
-          x.className = x.className.replace("show", "")
-        }, 3000)
+          x.className = x.className.replace("show", "");
+        }, 3000);
       }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const expItems = document.querySelectorAll(".experience-item");
+
+        expItems.forEach((item, index) => {
+          const title = item.querySelector(".experience-title");
+          const bullets = item.querySelectorAll(".experience-bullet");
+
+          if (bullets.length) {
+            const bulletsContainer = document.createElement("div");
+            bulletsContainer.className = "experience-bullets";
+
+            bullets.forEach((bullet) => {
+              const clonedBullet = bullet.cloneNode(true);
+              bulletsContainer.appendChild(clonedBullet);
+
+              bullet.remove();
+            });
+
+            const description = item.querySelector(".experience-description");
+            description.after(bulletsContainer);
+          }
+
+          item.addEventListener("click", function () {
+            title.classList.toggle("active");
+
+            const bulletsContainer = this.querySelector(".experience-bullets");
+            if (bulletsContainer) {
+              bulletsContainer.classList.toggle("active");
+            }
+          });
+        });
+      });
     </script>
 
-    <!-- Background Container -->
-    <div class="background">
-      <div class="card">
+    <div class="container">
+      <!-- Header Card -->
+      <div class="header-card">
         <!-- Profile Image -->
         <img
-          src="https://media.licdn.com/dms/image/v2/D4D03AQFUI8tQ8rXUIA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1718948662225?e=1740009600&v=beta&t=-ZiUXsG9hrqh_CiURIGNRr2cyhKEsPZB8xIhcQmwskI"
+          src="https://media.licdn.com/dms/image/v2/D4D03AQFUI8tQ8rXUIA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1718948662217?e=1752710400&v=beta&t=sO_3q6Ml_gASp2NzZops0SfcqR0duh1PjzLxasMmns4"
           alt="Profile Picture"
           class="profile-img"
         />
 
         <!-- Name and Title -->
         <p class="name">M. Usman Kiani</p>
-        <p class="headline">React Native︱ React ︱ Web3</p>
+        <p class="headline">
+          Lead Frontend Engineer | React Native | React | Web3 | AI
+        </p>
 
         <!-- Bio -->
         <p class="bio">
-          I'm a software developer with 5+ years in React Native and Web3. I
-          build scalable apps and enjoy working with diverse teams to create
-          solutions that meet user and business needs.
-          <br />
-          Let's connect!
+          I'm currently working at
+          <span
+            class="link"
+            style="cursor: pointer; font-weight: 600"
+            onclick="window.open('https://www.aleh.tech', '_blank')"
+            >Aleh</span
+          >, as a Augmented Lead Frontend Engineer for a US based firm
+          specializing in Web3 and AI.
         </p>
+      </div>
 
-        <div class="social-links">
-          <a onclick="copyText()">
-            <img src="./icons/mail.png" alt="Email" class="icon_small" />
-          </a>
-          <a
-            href="https://github.com/usmankiani256"
-            target="_blank"
-            aria-label="GitHub"
-          >
-            <img src="./icons/github.png" alt="GitHub" class="icon" />
-          </a>
-          <a
-            href="https://linkedin.com/in/usmankiani"
-            target="_blank"
-            aria-label="LinkedIn"
-          >
-            <img src="./icons/linkedin.png" alt="LinkedIn" class="icon" />
-          </a>
+      <!-- What I'm Working On Section -->
+      <div class="section">
+        <h2 class="section-title">What I'm Working On 🔭</h2>
+        <div class="project">
+          <p class="project-title">Bridging AI & Web3</p>
+          <p class="project-description">
+            Building applications that leverage blockchain transparency with AI
+            powered analysis. Currently developing a offline system that uses
+            LLMs for regulatory compliance in DeFi/Healthcare domains.
+          </p>
+        </div>
+        <div class="project">
+          <p class="project-title">Browser-optimized local LLMs</p>
+          <p class="project-description">
+            Engineering WebGPU-accelerated inference solutions that deliver
+            sub-100ms latency for natural language processing tasks. Leveraging
+            quantization techniques to find the sweet spot between performance
+            and accuracy.
+          </p>
         </div>
       </div>
-      <div id="snackbar">Copied email to clipboard</div>
+
+      <!-- Tech Snapshot Section -->
+      <div class="section">
+        <h2 class="section-title">Tech Snapshot 🛠️</h2>
+        <div class="skills-container">
+          <div class="skill-category">
+            <h3>Frontend</h3>
+            <div class="skill-list">
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">React Native</span>
+              <span class="skill-tag">Next.js</span>
+              <span class="skill-tag">TypeScript</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3>AI</h3>
+            <div class="skill-list">
+              <span class="skill-tag">WebLLM (mlc-ai)</span>
+              <span class="skill-tag">WebGPU</span>
+              <span class="skill-tag">ONNX Runtime</span>
+              <span class="skill-tag">Transformers.js</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3>Web3</h3>
+            <div class="skill-list">
+              <span class="skill-tag">EVM</span>
+              <span class="skill-tag">Layer 2</span>
+              <span class="skill-tag">ERC-20</span>
+              <span class="skill-tag">ERC-721</span>
+              <span class="skill-tag">BEP-20</span>
+              <span class="skill-tag">Solidity</span>
+              <span class="skill-tag">Tenderly</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3>Common</h3>
+            <div class="skill-list">
+              <span class="skill-tag">Testing</span>
+              <span class="skill-tag">CI/CD</span>
+              <span class="skill-tag">AWS Lambda</span>
+              <span class="skill-tag">Agile</span>
+              <span class="skill-tag">Mentorship</span>
+              <span class="skill-tag">Optimization</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Experience Section -->
+      <div class="section">
+        <h2 class="section-title">Professional Experience</h2>
+
+        <div class="experience-item">
+          <p class="experience-title">
+            Lead Frontend Engineer | Aleh | Augmented
+          </p>
+          <p class="experience-details">September 2023 - Present</p>
+          <p class="experience-description">
+            Innovating Blockchain and AI Solutions.
+          </p>
+          <p class="experience-bullet">
+            Led Blockchain and AI development. Mentored 8+ developers,
+            streamlined Agile workflows and CI/CD pipelines.
+          </p>
+          <p class="experience-bullet">
+            Led the migration of ETH>Arbitrum Nova>Arbitrum One, recording 50K+
+            transactions and reduced network costs.
+          </p>
+          <p class="experience-bullet">
+            Engineered an Offline AI/LLM Browser Engine achieving sub-100ms
+            inference latency using WebGPU acceleration, quantization, and ONNX
+            Runtime optimizations.
+          </p>
+          <p class="experience-bullet">
+            Developed white-label SaaS solutions for enterprise clients,
+            enabling cross-chain NFT functionality with immutable IPFS-hosted
+            model deployment.
+          </p>
+        </div>
+
+        <div class="experience-item">
+          <p class="experience-title">
+            Lead React Native Developer | Kelp Finance
+          </p>
+          <p class="experience-details">
+            Remote | February 2023 - September 2023
+          </p>
+          <p class="experience-description">
+            Empowering Decentralized Financial Growth.
+          </p>
+          <p class="experience-bullet">
+            Scaled Kelp to 2M+ Wallets and 1.7M+ Downloads by migrating from
+            Expo to Bare React Native.
+          </p>
+          <p class="experience-bullet">
+            Integrated BEP-20 Contracts and Gasless transactions, enabling
+            secure cross-chain swaps and fiat purchases (Transak).
+          </p>
+          <p class="experience-bullet">
+            Supported $200K Presale Fundraising with investor-ready MVPs
+            featuring audited smart contracts (SolidProof.io) and DeFi-compliant
+            transaction workflows.
+          </p>
+          <p class="experience-bullet">
+            Enhanced wallet security through implementation of AES-256
+            encryption and biometric authentication.
+          </p>
+        </div>
+
+        <div class="experience-item">
+          <p class="experience-title">
+            Senior React Native Developer | KryptoMind
+          </p>
+          <p class="experience-details">
+            Lahore | January 2022 - February 2023
+          </p>
+          <p class="experience-description">Where Blockchain meets AI.</p>
+          <p class="experience-bullet">
+            Developed DEX/CEX Exchange Features using PancakeSwap SDK, enabling
+            orderbook trading, token swaps, and liquidity pools with real-time
+            market data integration.
+          </p>
+          <p class="experience-bullet">
+            Collaborated on CryptoKara Wallet with BIP39/44 mnemonics for 15+
+            native cryptocurrencies and BEP-20/ERC-20 token support.
+          </p>
+          <p class="experience-bullet">
+            Engineered FitScrypt dApp integrating BEP-20 token rewards and
+            Radar.io geo-fencing to gamify fitness tracking.
+          </p>
+          <p class="experience-bullet">
+            Built reusable internal testing library standardizing unit tests
+            (Jest), integration tests (Enzyme), and E2E testing (Detox).
+          </p>
+        </div>
+      </div>
+
+      <!-- Beyond Code Section -->
+      <div class="section">
+        <h2 class="section-title">Beyond Code 🎮</h2>
+        <div
+          style="display: flex; flex-direction: column; row-gap: 0.5rem"
+          class="interests-content"
+        >
+          <p>
+            <strong>Stress relief via Controlled chaos</strong> - Occasionally
+            defeating FromSoftware Bosses from Elden Ring, Dark Souls, and
+            Sekiro. Playing competitive FPS in Valorant, for "relaxation".
+          </p>
+          <p>
+            <strong>Emotional rewires</strong> - Masterpieces like Attack on
+            Titan, Fullmetal Alchemist Brotherhood, and Violet Evergarden.
+          </p>
+          <p>
+            <strong>Continuous learning</strong> - Exploring emerging
+            technologies at the intersection of AI and blockchain. Browsing
+            through the HuggingFace communities for inspiration.
+          </p>
+        </div>
+      </div>
+
+      <!-- Contact Section -->
+      <div class="section">
+        <h2 class="section-title">Interesting Times Ahead 🚀</h2>
+        <div
+          class="interests-content"
+          style="text-align: center; margin: 1rem 0"
+        >
+          <p>
+            The speed at which Tech is advancing, can't sit by and watch. I'm
+            open to discussion, innovative ideas, and collaboration.
+          </p>
+          <br />
+          <div class="social-links">
+            <a onclick="copyText()">
+              <img
+                src="https://img.shields.io/badge/Email-D14836?style=flat&logo=gmail&logoColor=white"
+                alt="Email"
+                class="icon"
+              />
+            </a>
+            <a
+              href="https://github.com/usmankiani256"
+              target="_blank"
+              aria-label="GitHub"
+            >
+              <img
+                src="https://img.shields.io/badge/GitHub-000000?style=flat&logo=GitHub&logoColor=white"
+                alt="GitHub"
+                class="icon"
+              />
+            </a>
+            <a
+              href="https://linkedin.com/in/usmankiani"
+              target="_blank"
+              aria-label="LinkedIn"
+            >
+              <img
+                src="https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white"
+                alt="LinkedIn"
+                class="icon"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <div id="snackbar">Copied email to clipboard</div>
   </body>
 </html>
