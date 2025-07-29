@@ -269,8 +269,10 @@ export default function CaseStudyTemplate({
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
               {techStack.map((tech, index) => (
                 <Card key={index}>
-                  <CardContent className="p-3 text-center">
-                    <span className="text-sm font-medium">{tech}</span>
+                  <CardContent className="p-3 text-center text-ellipsis overflow-hidden">
+                    <span className="text-sm font-medium text-ellipsis overflow-hidden whitespace-nowrap">
+                      {tech}
+                    </span>
                   </CardContent>
                 </Card>
               ))}

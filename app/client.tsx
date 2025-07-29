@@ -25,6 +25,18 @@ export default function ClientLayout({
       <head>
         <NoScriptStyles />
         <link rel="manifest" href="/manifest.json" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link
+          rel="apple-touch-icon-precomposed"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
         <style jsx global>{`
           :root {
             --font-mono: "Geist Mono", ui-monospace, SFMono-Regular,

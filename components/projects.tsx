@@ -98,15 +98,16 @@ export default function FeaturedWork() {
                   <CardContent className="project-content flex-1 flex flex-col p-5">
                     <h3 className="text-lg font-bold">
                       {project.title}
+                      {"  "}
                       {project.nda && (
                         <Badge
                           variant="outline"
-                          className="absolute border-purple-500/50 ml-4"
+                          className="border-purple-500/50"
                         >
                           <span className="text-purple-500/50 pt-0.5 text-xs font-extralight">
                             NDA Protected
                           </span>
-                          <LockKeyhole className="h-3 w-3 ml-1 mb-0.5 text-purple-500/50" />
+                          <LockKeyhole className="h-3 w-3 ml-1 text-purple-500/50" />
                         </Badge>
                       )}
                     </h3>
